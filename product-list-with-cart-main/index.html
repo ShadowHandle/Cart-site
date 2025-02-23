@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css"> <!-- Link to CSS file -->
+
+  <title>Frontend Mentor | Product list with cart</title>
+
+</head>
+<body>
+
+  <header>
+    <h1>Desserts</h1>
+  </header>
+
+  <main>
+    <section id="dessert-list">
+      <!-- Dessert items will be dynamically added here using JavaScript -->
+      <article class="dessert-item">
+        <img src="./assets/images/image-waffle-thumbnail.jpg" alt="Waffle with Berries">
+        <h3>Waffle with Berries</h3>
+        <p class="category">Waffle</p>
+        <p class="price">$6.50</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </article>
+
+      <article class="dessert-item">
+        <img src="./assets/images/image-creme-brulee-thumbnail.jpg" alt="Vanilla Bean Crème Brûlée">
+        <h3>Vanilla Bean Crème Brûlée</h3>
+        <p class="category">Crème Brûlée</p>
+        <p class="price">$7.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </article>
+
+      <article class="dessert-item">
+        <img src="./assets/images/image-macaron-thumbnail.jpg" alt="Macaron Mix of Five">
+        <h3>Macaron Mix of Five</h3>
+        <p class="category">Macaron</p>
+        <p class="price">$8.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </article>
+
+      <article class="dessert-item">
+        <img src="./assets/images/image-tiramisu-thumbnail.jpg" alt="Classic Tiramisu">
+        <h3>Classic Tiramisu</h3>
+        <p class="category">Tiramisu</p>
+        <p class="price">$5.50</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </article>
+
+      <article class="dessert-item">
+        <img src="./assets/images/image-baklava-thumbnail.jpg" alt="Pistachio Baklava">
+        <h3>Pistachio Baklava</h3>
+        <p class="category">Baklava</p>
+        <p class="price">$4.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </article>
+
+      <article class="dessert-item">
+        <img src="./assets/images/image-meringue-thumbnail.jpg" alt="Lemon Meringue Pie">
+        <h3>Lemon Meringue Pie</h3>
+        <p class="category">Pie</p>
+        <p class="price">$5.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </article>
+
+      <article class="dessert-item">
+        <img src="./assets/images/image-cake-thumbnail.jpg" alt="Red Velvet Cake">
+        <h3>Red Velvet Cake</h3>
+        <p class="category">Cake</p>
+        <p class="price">$4.50</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </article>
+
+      <article class="dessert-item">
+        <img src="./assets/images/image-brownie-thumbnail.jpg" alt="Salted Caramel Brownie">
+        <h3>Salted Caramel Brownie</h3>
+        <p class="category">Brownie</p>
+        <p class="price">$4.50</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </article>
+
+      <article class="dessert-item">
+        <img src="./assets/images/image-panna-cotta-thumbnail.jpg" alt="Vanilla Panna Cotta">
+        <h3>Vanilla Panna Cotta</h3>
+        <p class="category">Panna Cotta</p>
+        <p class="price">$6.50</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </article>
+
+    </section>
+
+    <section id="cart">
+      <h2>Your Cart (<span id="cart-item-count">0</span>)</h2>
+      <div id="cart-items-container">
+        <p id="empty-cart-message">Your added items will appear here</p>
+        <!-- Cart items will be dynamically added here using JavaScript -->
+      </div>
+      <p id="order-total">Order Total: $<span id="total-price">0.00</span></p>
+      <button id="confirm-order-btn">Confirm Order</button>
+      <button id="start-new-order-btn">Start New Order</button>
+    </section>
+
+    <!-- Order Confirmation Modal (initially hidden) -->
+    <div id="order-confirmation-modal" class="modal" hidden>
+      <div class="modal-content">
+        <span class="close-button">×</span>
+        <div class="modal-header">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48"><path fill="none" d="M0 0h24v24H0z"/><path d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z" fill="green"/></svg>
+          <h2>Order Confirmed</h2>
+          <p>We hope you enjoy your food!</p>
+        </div>
+        <div id="modal-cart-items">
+          <!-- Cart items will be duplicated here for the modal -->
+        </div>
+        <p id="modal-order-total">Order Total: $<span id="modal-total-price">0.00</span></p>
+        <button id="modal-start-new-order-btn">Start New Order</button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </footer>
+
+  <script src="script.js"></script> <!-- Link to JavaScript file -->
+</body>
+</html>

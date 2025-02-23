@@ -1,0 +1,446 @@
+/* style.css */
+
+/* CSS Reset (already present - no changes needed here) */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto !important;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Font Integration */
+@font-face {
+  font-family: 'Red Hat Text';
+  src: url('./assets/fonts/RedHatText-Regular.ttf') format('truetype'); /* Adjust path if necessary */
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Red Hat Text';
+  src: url('./assets/fonts/RedHatText-SemiBold.ttf') format('truetype'); /* Adjust path if necessary */
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Red Hat Text';
+  src: url('./assets/fonts/RedHatText-Bold.ttf') format('truetype'); /* Adjust path if necessary */
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+/* Global Styles */
+body {
+  font-family: 'Red Hat Text', sans-serif;
+  font-weight: 400;
+  color: hsl(14, 65%, 9%); /* Rose 900 */
+  background-color: hsl(20, 50%, 98%); /* Rose 50 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 2.25rem; /* Slightly smaller h1 */
+  margin-bottom: 0.8em; /* Reduced margin */
+}
+
+h2 {
+  font-size: 1.75rem; /* Slightly smaller h2 */
+  margin-bottom: 0.6em; /* Reduced margin */
+}
+
+h3 {
+  font-size: 1rem; /* Product names - 16px as per style guide */
+  font-weight: 600;
+}
+
+p {
+  color: hsl(12, 20%, 44%); /* Rose 500 for general text */
+  margin-bottom: 0.75em; /* Adjusted paragraph spacing */
+  font-size: 0.9rem; /* Slightly smaller paragraph text */
+}
+
+button {
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+  padding: 0.6em 1.2em; /* Slightly adjusted button padding */
+  border-radius: 6px; /* Slightly adjusted button radius */
+  font-size: 0.9rem; /* Button text size */
+}
+
+/* Layout Styles (adjustments for spacing and alignment) */
+main {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  gap: 40px; /* Increased gap between sections */
+  padding-bottom: 20px; /* Added padding at bottom */
+}
+
+#dessert-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax width */
+  gap: 25px; /* Increased gap between dessert items */
+}
+
+.dessert-item {
+  background-color: hsl(0, 0%, 100%);
+  padding: 20px; /* Increased padding */
+  border-radius: 10px; /* Slightly more rounded corners */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08); /* Softer shadow */
+}
+
+.dessert-item img {
+  border-radius: 10px; /* Match item radius */
+  margin-bottom: 15px; /* Increased margin */
+}
+
+.dessert-item h3 {
+  margin-bottom: 0.5em; /* Spacing below product name */
+}
+
+.dessert-item .category {
+  color: hsl(14, 25%, 72%); /* Rose 300 for category */
+  font-style: normal; /* Removed italic for category */
+  margin-bottom: 0.5em; /* Spacing below category */
+  font-size: 0.85rem; /* Smaller category text */
+}
+
+.dessert-item .price {
+  font-weight: 700; /* Bold price */
+  margin-bottom: 1em; /* Increased spacing below price */
+  font-size: 1rem; /* Price font size */
+  color: hsl(14, 65%, 9%); /* Rose 900 for price */
+}
+
+.add-to-cart-btn {
+  background-color: hsl(159, 69%, 38%); /* Green */
+  color: white;
+  transition: background-color 0.2s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.add-to-cart-btn:hover, .add-to-cart-btn:focus {
+  background-color: hsl(159, 69%, 50%); /* Lighter green on hover/focus */
+}
+
+
+#cart {
+  background-color: hsl(0, 0%, 100%);
+  padding: 25px; /* Increased padding */
+  border-radius: 10px; /* Slightly more rounded corners */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  width: 350px; /* Slightly wider cart */
+  min-width: 350px;
+}
+
+#cart h2 {
+  margin-bottom: 1rem; /* Spacing below cart title */
+}
+
+#cart-items-container {
+  margin-bottom: 1.5em; /* Increased spacing below cart items */
+}
+
+#empty-cart-message {
+  text-align: center;
+  color: hsl(14, 25%, 72%); /* Rose 300 */
+  padding: 1.5em 0; /* Increased padding */
+  font-size: 0.9rem; /* Empty cart message size */
+}
+
+#order-total {
+  font-weight: 700; /* Bold order total */
+  margin-bottom: 2em; /* Increased spacing above buttons */
+  text-align: right;
+  font-size: 1.1rem; /* Slightly larger order total */
+  color: hsl(14, 65%, 9%); /* Rose 900 for order total */
+}
+
+#confirm-order-btn {
+  background-color: hsl(14, 86%, 42%); /* Red */
+  color: white;
+  display: block;
+  width: 100%;
+  margin-bottom: 0.75em; /* Spacing below confirm button */
+  transition: background-color 0.2s ease-in-out;
+}
+
+#confirm-order-btn:hover, #confirm-order-btn:focus {
+  background-color: hsl(14, 86%, 55%); /* Lighter red on hover/focus */
+}
+
+#start-new-order-btn {
+  background-color: hsl(13, 31%, 94%); /* Rose 100 */
+  color: hsl(14, 65%, 9%); /* Rose 900 */
+  display: block;
+  width: 100%;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#start-new-order-btn:hover, #start-new-order-btn:focus {
+  background-color: hsl(13, 31%, 85%); /* Slightly darker Rose 100 on hover/focus */
+}
+
+
+/* Modal Styles (minor adjustments - mostly spacing) */
+/* Modal Styles */
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  display: none; /*  <--- Changed to display: none; */
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto; /* Reduced top margin */
+  padding: 30px; /* Increased modal padding */
+  border: none; /* Removed modal border */
+  width: 85%; /* Slightly wider modal */
+  max-width: 550px; /* Increased modal max width */
+  border-radius: 12px; /* More rounded modal corners */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Slightly stronger modal shadow */
+}
+
+.close-button {
+  color: hsl(14, 25%, 72%); /* Rose 300 for close button color */
+  float: right;
+  font-size: 30px; /* Slightly larger close button */
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: hsl(14, 65%, 9%); /* Rose 900 on close button hover/focus */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 1.5em; /* Increased modal header margin */
+}
+
+.modal-header svg {
+  margin-bottom: 0.75em; /* Spacing below checkmark icon */
+  height: 50px; /* Example icon size - adjust as needed */
+  width: 50px;  /* Example icon size - adjust as needed */
+}
+
+.modal-header h2 {
+  font-size: 2rem; /* Modal title size */
+  margin-bottom: 0.25em; /* Spacing below modal title */
+}
+
+.modal-header p {
+  font-size: 1rem; /* Modal message size */
+}
+
+
+#modal-cart-items {
+  margin-bottom: 1.5em; /* Increased spacing for modal cart items */
+}
+
+#modal-order-total {
+  font-weight: 700; /* Bold modal order total */
+  text-align: right;
+  margin-bottom: 2em; /* Increased spacing above modal "Start New Order" button */
+  font-size: 1.1rem; /* Modal order total size */
+  color: hsl(14, 65%, 9%); /* Rose 900 for modal order total */
+}
+
+#modal-start-new-order-btn {
+  background-color: hsl(159, 69%, 38%); /* Green for modal "Start New Order" button */
+  color: white;
+  display: block;
+  width: 100%;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#modal-start-new-order-btn:hover, #modal-start-new-order-btn:focus {
+  background-color: hsl(159, 69%, 50%); /* Lighter green on hover/focus */
+}
+
+
+.attribution {
+  font-size: 0.8rem; /* Smaller attribution text */
+  text-align: center;
+  margin-top: 30px; /* Increased attribution margin */
+  color: hsl(12, 20%, 44%); /* Rose 500 for attribution text */
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* style.css - Continued from previous step */
+
+/* ... (CSS Reset, Font Integration, Global Styles, Modal Styles, Attribution - all from previous step) ... */
+
+/* Layout Styles (adjustments for spacing and alignment - already present, keeping as is for mobile base) */
+main {
+  display: flex;
+  flex-direction: column; /* Default to column for mobile */
+  max-width: 1200px;
+  width: 100%;
+  gap: 40px;
+  padding-bottom: 20px;
+}
+
+#dessert-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.dessert-item {
+  /* ... (dessert item styles - already present) ... */
+}
+
+#cart {
+  /* ... (cart styles - already present) ... */
+  width: 100%; /* Cart takes full width on mobile */
+  min-width: auto; /* Remove min-width for mobile full width */
+}
+
+
+/* Desktop Styles - Media Query */
+@media (min-width: 768px) { /* Example breakpoint - adjust if needed */
+  main {
+    flex-direction: row; /* Row direction for desktop layout */
+    align-items: flex-start; /* Align items to top in row layout */
+  }
+
+  #dessert-list {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* More width for dessert items on desktop */
+    max-width: 800px; /* Example max width for dessert list on desktop - adjust as needed */
+  }
+
+  #cart {
+    width: 350px; /* Fixed width for cart on desktop */
+    min-width: 350px; /* Keep min-width for desktop cart */
+  }
+
+  h1 {
+    font-size: 3rem; /* Larger h1 on desktop */
+  }
+
+  h2 {
+    font-size: 2.25rem; /* Larger h2 on desktop */
+  }
+
+  /* Adjust modal for desktop if needed - currently modal is centered and responsive already */
+  .modal-content {
+    margin: 5% auto; /* Slightly adjust modal margin on desktop */
+    max-width: 600px; /* Slightly wider modal on desktop */
+  }
+}
+
+/* style.css - Continued */
+
+/* Cart Item Styles */
+.cart-item {
+  display: flex;
+  justify-content: space-between; /* Distribute space between item details and remove button */
+  align-items: center; /* Vertically align items */
+  padding: 10px 0;
+  border-bottom: 1px solid hsl(13, 31%, 94%); /* Rose 100 - Separator line */
+  margin-bottom: 10px;
+}
+
+.cart-item:last-child {
+  border-bottom: none; /* Remove border from the last item */
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+
+.cart-item-name {
+  font-weight: 600; /* Example name style */
+  margin-right: 10px; /* Spacing from price/quantity */
+}
+
+.cart-item-price {
+  color: hsl(159, 69%, 38%); /* Green - Example price color */
+  font-weight: 600; /* Example price weight */
+  margin-right: 10px; /* Spacing from quantity */
+}
+
+.cart-item-quantity {
+  color: hsl(14, 25%, 72%); /* Rose 300 - Example quantity color */
+  margin-right: auto; /* Push quantity to the left, and remove button to the right */
+}
+
+
+.remove-item-button {
+  background-color: hsl(14, 86%, 42%); /* Red */
+  color: white;
+  border-radius: 50%; /* Make it circular */
+  width: 25px; /* Example size */
+  height: 25px; /* Example size */
+  padding: 0; /* Remove default button padding */
+  font-size: 0.7rem; /* Smaller font size for "X" or icon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1; /* Adjust line height to center text vertically */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.remove-item-button:hover, .remove-item-button:focus {
+  background-color: hsl(14, 86%, 55%); /* Lighter red on hover/focus */
+}
+
+
+/* ... (Modal Styles, Attribution - all from previous step) ... */
